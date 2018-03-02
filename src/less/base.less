@@ -1,0 +1,170 @@
+@import 'base-color.less';//颜色配置文件
+
+
+html{height: 100%;}
+html body{width:100%; height: 100%;/*background-color: #ffffff;*/}
+//字体颜色
+.color-base{color:@color-base;}.color-red{color:@color-bright;}.color-red2{color:@color-bright2;}
+.color-blue{color:@color-blue;} .color-yellow{color:@color-yellow;}
+.gray1{color:@color-gray1;}.gray2{color:@color-gray2;} .gray3{color:@color-gray3;}.gray4{color:@color-gray4;}.color-green{color:@color-green;}
+.color-white{color:@color-white;}.color-black{color:@color-black;}.color-bright{color:@color-bright;}.color-bright3{color:@color-bright3;}
+
+//背景颜色
+.bgcolor-white{background-color: #fff}.bgcolor-bright{background-color: @color-bright}
+.bgcolor-bright2{background-color:@color-bright2}.bgcolor-gray{background-color:@color-gray1}
+.bgcolor-gray2{background-color:@color-gray2}.bgcolor-gray3{background-color:@color-gray3}
+.bgcolor-gray4{background-color:@color-gray4}.bgcolor-green{background-color: @color-green}
+.bgcolor-black{background-color: @color-black}.bgcolor-yellow2{background-color: @color-yellow2}
+.bgcolor-yellow{background-color: @color-yellow}.bgcolor-bg{background-color: @color-bg-page}
+
+//字体大小
+[data-dpr="ss"]{font-size: 9px;}
+[data-dpr="s"]{font-size: 11px;}
+[data-dpr="normal"]{font-size: 14px;}
+[data-dpr="m"]{font-size: 16px;}
+[data-dpr="l"]{font-size: 21px;}
+[data-dpr="xl"]{font-size: 23px;}
+
+//行高
+.lh14{line-height:14px}  .lh16{line-height:16px}  .lh18{line-height:18px}  .lh20{line-height:20px}  .lh24{line-height:24px}  .lh28{line-height:28px}
+//容器内字体排列
+.align-l{text-align:left}.align-c{text-align:center}.align-r{text-align:right}.align-t{vertical-align:top}.align-m{vertical-align:middle}.align-b{vertical-align:bottom}
+
+//布局
+.hide{display:none;}
+.show{display:block;}
+.bold{ font-weight:bold;}
+.block{display: block;}
+.i-block{display: inline-block}
+.normal{ font-weight:normal;}
+.relative{position:relative;}
+.absolute{position:absolute;}
+.v-align{vertical-align: middle}
+.float-l{float: left;}.float-r{float: right;}
+.margin-auto{margin:0 auto}
+.h-per100{ height: 100%}
+.line-w{height:0.5px}
+.line-h{width: 0.5px; background: @color-gray1; height: 76%}
+.border-t{border-top: @color-line 0.5px solid;}
+.border-b{border-bottom: @color-line 0.5px solid;}
+.max-w100{ max-width: 100%}
+.max-h100{ max-height:100%}
+
+//简易弹性布局
+.flex{display: flex;justify-content: space-around; align-items: center;} //居中
+.flex-left{display: flex;justify-content: flex-start;align-items: center;} //左分布
+.flex-right{display: flex;justify-content: flex-end;align-items: center;} //左分布
+.flex-center{display: flex;justify-content: center;align-items: center;} //往中间分布
+.flex-two{display: flex;justify-content:space-between;align-items: center;} //两边分布
+.flex-row{display: flex;justify-content: center;flex-direction:column;align-items: center;} //垂直居中
+.flex-initial { display: flex;justify-content:initial;align-items: center; }
+.flex-item-1{flex-grow:1}.flex-item-2{flex-grow:2}.flex-item-3{flex-grow:3}.flex-item-4{flex-grow:4}
+
+//间距5%至100%，每隔5%生成一个class
+.per5-100(1);
+.per5-100(@num,@n:@num*5) when (@num<21){
+    .per@{n} {width:(5% * @num) !important}
+    .per5-100((@num+1));
+}
+
+//间距0至50，每隔5px生成一个class
+.space0-50(1);
+.space0-50(@num,@n:@num*5) when (@num<10){
+    .p@{n} {padding:(5px * @num)}
+    .pl@{n}{padding-left:(5px * @num)}
+    .pr@{n}{padding-right:(5px * @num)}
+    .pt@{n}{padding-top:(5px * @num)}
+    .pb@{n}{padding-bottom:(5px * @num)}
+    .m@{n} {margin:(5px * @num)}
+    .ml@{n}{margin-left:(5px * @num)}
+    .mr@{n}{margin-right:(5px * @num)}
+    .mt@{n}{margin-top:(5px * @num)}
+    .mb@{n}{margin-bottom:(5px * @num)}
+    .space0-50((@num+1));
+}
+//间距50至150，每隔(10px)生成一个class
+.mt50-150(5);
+.mt50-150(@num,@n:@num*10) when (@num<16){
+  .pt@{n}{padding-top:(10px * @num)}
+  .pb@{n}{padding-bottom:(10px * @num)}
+  .mt@{n}{margin-top:(10px * @num)}
+  .mb@{n}{margin-bottom:(10px * @num)}
+  .mt50-150((@num+1));
+}
+
+.plr10{padding-left:10px;padding-right:10px;}
+.plr20{padding-left:20px;padding-right:20px;}
+.plr30{padding-left:30px;padding-right:30px;}
+.plr40{padding-left:40px;padding-right:40px;}
+.plr50{padding-left:50px;padding-right:50px;}
+
+//图标大小
+.icon {
+    width: 2em; height: 2em;
+    vertical-align: -0.3em;
+    fill: currentColor;
+    overflow: hidden;
+    margin-right: 1px;
+    margin-bottom: 0.15em;
+    &.w1 {width: 1.3em; height: 1.3em;}
+    &.w2 {width: 1.5em; height: 1.5em;}
+    &.w3 {width: 2.8em; height: 2.8em;}
+    &.w4 {width: 3.5em; height: 3.5em;}
+}
+//头像
+.f-head-map{
+    &.w1 {width: 26px; height: 26px;}
+    &.w2 {width: 16px; height: 16px;}
+    &.w3 {width: 1.5em; height: 1.5em;}
+    &.w4 {width: 30px; height: 30px;}
+    &.w5 {width: 40px; height: 40px;}
+    //width: 4.4em;
+    //height: 4.4em;
+    width: 60px;
+    height: 60px;
+    border-radius: 120px;
+    border:@color-line3 1px solid;
+    overflow: hidden;
+    img{width: 100%}
+    .w1{width: 170%;  margin-left: -35%;margin-top: -30%}
+    &.scale-1px:after{
+      border: 1px solid @color-line3;
+      border-radius: 120px;
+    }
+}
+
+//按钮
+.f-btn{
+  &.w0{}
+  &.big{
+    height: 40px;
+    line-height: 40px;
+  }
+  height: 29px;
+  line-height: 29px;
+  padding:0 20px;
+  display: inline-block;
+  text-align: center;
+  color: @color-base;
+  outline: none;
+  background: #ffffff;
+  border: #e7e7e7 1px solid;
+  &:active{background: #eeeeee;}
+  &.scale-1px:after{border: 1px solid @color-line3;border-radius: 6px;}//1像素补丁
+}
+//空心按钮
+.f-btn.bgcolor-none {
+  color: @color-bright;
+  background: transparent;
+  &.scale-1px:after{border:#e7e7e7 1px solid;border-radius: 6px;}
+  &.bgcolor-gray{
+    color: @color-gray1;
+    &.scale-1px:after{border: @color-line3 1px solid;border-radius: 6px;}
+  }
+  &.bgcolor-bright{
+    color: @color-bright;
+    &.scale-1px:after{ border:@color-bright3 1px solid;border-radius: 6px;}
+  }
+}
+
+
